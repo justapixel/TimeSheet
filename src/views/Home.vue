@@ -1,13 +1,12 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <TimeSheet msg="Welcome to Your Vue.js App"/>
+    <TimeSheet/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import TimeSheet from '@/components/TimeSheet.vue'
+import TimeSheet from '@/components/TimeSheet.vue';
 
 export default {
   name: 'Home',
