@@ -92,8 +92,8 @@ export default {
 
   methods: {
     totalday: function(date) {
-      var start = moment(date.date + " " + date.time_in);
-      var end = moment(date.date + " " + date.time_out)
+      var start = moment(date.date + " " + date.time_in, 'DD/MM HH-mm');
+      var end = moment(date.date + " " + date.time_out, 'DD/MM HH-mm')
       var duration = moment.duration(end.diff(start));
       var hours = duration.asHours();
       return hours.toFixed(2);
