@@ -1,6 +1,6 @@
 <template>
   <v-container class="grey darken-4">
-    <h1>TimeSheet</h1>
+    <h1>TimeSheet {{ time }}</h1>
     <v-simple-table fixed-header height="400">
       <template v-slot:default>
         <thead>
@@ -36,6 +36,8 @@ export default {
   props: {},
   data() {
     return {
+      time: '0',
+      timerID: 0,
       desserts: [
         {
           date: "01/03",
@@ -90,6 +92,11 @@ export default {
     };
   },
 
+  mounted(){
+        this.timerID = setInterval(function(){
+            this.updateTime()
+        }.bind(this), 1000)
+  },
   methods: {
     totalday: function(date) {
       var start = moment(date.date + " " + date.time_in, 'DD/MM HH-mm');
@@ -97,6 +104,9 @@ export default {
       var duration = moment.duration(end.diff(start));
       var hours = duration.asHours();
       return hours.toFixed(2);
+    },
+    updateTime() {
+            this.time = moment().format('HH:mm:ss')
     },
   }
 };
